@@ -1,0 +1,275 @@
+:root {
+  --bg: #08090b;
+  --fg: #f4f3f0;
+  --fg-dim: rgba(244, 243, 240, 0.56);
+  --cyan: #19e6d1;
+  --amber: #f2a93b;
+  --line: rgba(244, 243, 240, 0.14);
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --hero-scroll: 220vh;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  /* NOTE: overflow-x: hidden here would silently force overflow-y to
+     "auto" per the CSS overflow spec, turning <body> into its own
+     scroll container and breaking position: sticky for the hero.
+     overflow-x: clip avoids that pairing rule while still preventing
+     horizontal scroll from any full-bleed element. */
+  overflow-x: clip;
+}
+
+::selection { background: var(--cyan); color: #06070a; }
+
+/* ---------- Loader ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-mark {
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 4px;
+  color: var(--fg);
+}
+.loader-bar {
+  width: 160px;
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+.loader-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cyan), var(--amber));
+  transition: width 0.2s linear;
+}
+
+/* ---------- Hero (single-screen hub, proporção estilo pajo) ---------- */
+.hero {
+  position: relative;
+  height: var(--hero-scroll);
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6,7,10,0.35) 0%, rgba(6,7,10,0.0) 18%, rgba(6,7,10,0.08) 42%, rgba(6,7,10,0.72) 64%, rgba(6,7,10,0.95) 100%);
+  pointer-events: none;
+}
+
+.shatter-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.hero-hud {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 26px;
+}
+
+.hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--fg-dim);
+  pointer-events: none;
+}
+
+.hud-tag--right { color: var(--cyan); }
+
+/* Everything below sits together, bottom-anchored, like the reference's
+   single-screen proportions: logo, tagline, CTAs, socials, hint. */
+.hero-content {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.logo-mark {
+  width: min(70%, 340px);
+  height: auto;
+  filter: drop-shadow(0 4px 30px rgba(0,0,0,0.55));
+}
+
+.tagline {
+  margin: 0;
+  font-size: clamp(10px, 2.4vw, 13px);
+  letter-spacing: 3.5px;
+  color: var(--fg-dim);
+}
+
+.tagline .dot { color: var(--amber); }
+
+/* ---------- CTAs (lado a lado, como no pajo) ---------- */
+.hub-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 460px;
+  margin-top: 4px;
+}
+
+.cta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 12px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background: rgba(8,9,11,0.45);
+  backdrop-filter: blur(2px);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+
+.cta:hover { transform: translateY(-2px); }
+
+.cta--primary {
+  border-color: var(--amber);
+  background: rgba(242, 169, 59, 0.16);
+}
+.cta--primary:hover { background: rgba(242, 169, 59, 0.28); }
+
+.cta--secondary:hover {
+  border-color: var(--cyan);
+  background: rgba(25, 230, 209, 0.1);
+}
+
+/* ---------- Social pills ---------- */
+.hub-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 460px;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(8,9,11,0.45);
+  color: var(--fg-dim);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-pill svg { flex-shrink: 0; }
+
+.social-pill:hover {
+  color: var(--fg);
+  border-color: var(--cyan);
+  background: rgba(25, 230, 209, 0.08);
+}
+
+/* ---------- Scroll hint ---------- */
+.scroll-hint {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--fg-dim);
+}
+
+.scroll-line {
+  margin: 8px auto 0;
+  width: 100px;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.scroll-line-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--amber);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 22px 20px 30px;
+  text-align: center;
+  background: var(--bg);
+}
+
+.site-footer p {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(244,243,240,0.32);
+  margin: 0;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: 100vh; }
+  .hero-sticky { position: relative; }
+  .loader-fill, .cta, .loader { transition: none; }
+}
+
+/* ---------- Small / short screens ---------- */
+@media (max-height: 700px) {
+  .hero-content { gap: 10px; }
+  .logo-mark { width: min(60%, 260px); }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Josué Santos — Estúdio de IA</title>
+<meta name="description" content="Josué Santos (JOSUESANTOSTECH) — comerciais, clipes e cursos criados com inteligência artificial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" class="loader">
+  <div class="loader-mark">JS</div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+</div>
+
+<main>
+
+  <section class="hero" id="heroSection">
+    <div class="hero-sticky">
+
+      <video
+        id="heroVideo"
+        class="hero-video"
+        muted
+        playsinline
+        preload="auto"
+        poster="assets/poster.jpg"
+      >
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <canvas id="shatterCanvas" class="shatter-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-hud">
+        <div class="hud-top">
+          <span class="hud-tag">JOSUESANTOSTECH</span>
+          <span class="hud-tag hud-tag--right">IA · VÍDEO · CRIAÇÃO</span>
+        </div>
+
+        <div class="hero-content">
+
+          <img class="logo-mark" src="assets/logo.png" alt="Josué Santos Tech">
+          <p class="tagline">CRIAR <span class="dot">•</span> INOVAR <span class="dot">•</span> TRANSFORMAR</p>
+
+          <div class="hub-actions">
+            <a href="#comerciais" class="cta cta--primary" data-cta="comerciais">VER COMERCIAIS</a>
+            <a href="#estudio-ia" class="cta cta--secondary" data-cta="estudio-ia">VER ESTÚDIO IA</a>
+          </div>
+
+          <div class="hub-social">
+            <a class="social-pill" href="https://instagram.com/josuesantostech" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              INSTAGRAM
+            </a>
+            <a class="social-pill" href="https://youtube.com/@josuesantostech" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>
+              YOUTUBE
+            </a>
+            <a class="social-pill" href="https://wa.me/5561000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3.5 20.5l1.4-4.2a8 8 0 1 1 3 2.9z"/></svg>
+              WHATSAPP
+            </a>
+          </div>
+
+          <div class="scroll-hint">
+            <span id="scrollHintLabel">ROLE PARA VER O VÍDEO</span>
+            <div class="scroll-line"><div class="scroll-line-fill" id="scrollLineFill"></div></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2026 JOSUÉ SANTOS — TODOS OS PROJETOS SÃO CRIADOS COM INTELIGÊNCIA ARTIFICIAL.</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
