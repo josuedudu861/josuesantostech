@@ -143,21 +143,25 @@ html, body {
 
 .hud-tag--right { color: var(--cyan); }
 
-/* Logo sits pinned to the top, centered, above the subject's head. */
+/* Logo sits pinned to the top, dead-center, above the subject's head —
+   kept compact and high so it reads as its own mark instead of fighting
+   the larger logo reveal baked into the hero video below it. */
 .hero-logo-top {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-top: 6px;
+  width: 100%;
+  gap: 5px;
+  margin-top: 0;
   pointer-events: none;
 }
 
 .logo-scroll-note {
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: lowercase;
-  color: rgba(244, 243, 240, 0.32);
+  color: rgba(244, 243, 240, 0.55);
 }
 
 /* Everything below sits together, bottom-anchored, like the reference's
@@ -178,7 +182,8 @@ html, body {
 }
 
 .logo-mark--top {
-  width: min(52%, 240px);
+  width: min(30%, 130px);
+  margin: 0 auto;
 }
 
 .tagline {
@@ -263,28 +268,43 @@ html, body {
 }
 
 /* ---------- Scroll hint ---------- */
-/* Kept intentionally quiet: small, low-contrast, lowercase, and a very
-   slow breathing fade so it reads as a whisper, not a call-to-action. */
+/* Legible enough that a first-time visitor actually reads it: clearer
+   font, higher contrast than before, plus a bouncing arrow so the
+   "scroll to trigger the effect" message reads instantly, not just as
+   ambient texture. */
 .scroll-hint {
   margin-top: 6px;
   text-align: center;
-  font-size: 8px;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 2px;
-  color: rgba(244, 243, 240, 0.32);
+  color: rgba(244, 243, 240, 0.78);
   text-transform: lowercase;
   animation: scrollHintBreathe 3.6s ease-in-out infinite;
 }
 
 @keyframes scrollHintBreathe {
-  0%, 100% { opacity: 0.55; }
+  0%, 100% { opacity: 0.65; }
   50% { opacity: 1; }
 }
 
+.scroll-arrow {
+  display: block;
+  margin: 6px auto 0;
+  color: var(--amber);
+  animation: scrollArrowBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollArrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
 .scroll-line {
-  margin: 7px auto 0;
+  margin: 8px auto 0;
   width: 70px;
   height: 1px;
-  background: rgba(244, 243, 240, 0.1);
+  background: rgba(244, 243, 240, 0.14);
   overflow: hidden;
 }
 

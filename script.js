@@ -7,6 +7,7 @@
   var loaderFill = document.getElementById('loaderFill');
   var scrollLineFill = document.getElementById('scrollLineFill');
   var scrollHintLabel = document.getElementById('scrollHintLabel');
+  var scrollArrow = document.querySelector('.scroll-arrow');
   var canvas = document.getElementById('shatterCanvas');
   var ctx = canvas ? canvas.getContext('2d') : null;
 
@@ -216,6 +217,9 @@
     if (scrollHintLabel) {
       scrollHintLabel.style.opacity = progress > 0.08 ? '0' : '1';
     }
+    if (scrollArrow) {
+      scrollArrow.style.opacity = progress > 0.08 ? '0' : '1';
+    }
   }
 
   var ticking = false;
@@ -243,6 +247,7 @@
     video.play().catch(function () {});
     scrollLineFill.style.width = '100%';
     if (scrollHintLabel) scrollHintLabel.style.display = 'none';
+    if (scrollArrow) scrollArrow.style.display = 'none';
   } else {
     resizeCanvas();
     window.addEventListener('scroll', onScroll, { passive: true });
