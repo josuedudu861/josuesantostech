@@ -264,4 +264,51 @@
       }
     });
   });
+
+  /* ---------- Estúdio IA: hover-to-play on video cards ---------- */
+  // Only wires up cards where a real <video> was used instead of <img> —
+  // harmless no-op on the placeholder image cards.
+  document.querySelectorAll('.studio-card').forEach(function (card) {
+    var media = card.querySelector('video.studio-media');
+    if (!media) return;
+    card.addEventListener('mouseenter', function () {
+      var p = media.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    });
+    card.addEventListener('mouseleave', function () {
+      media.pause();
+      try { media.currentTime = 0; } catch (e) {}
+    });
+    // Basic touch support: tap toggles play/pause instead of relying on hover.
+    card.addEventListener('touchstart', function () {
+      if (media.paused) {
+        var p2 = media.play();
+        if (p2 && typeof p2.catch === 'function') p2.catch(function () {});
+      } else {
+        media.pause();
+      }
+    }, { passive: true });
+  });
+
+  /* ---------- Estúdio IA: filtro por categoria ---------- */
+  var filterBar = document.getElementById('studioFilters');
+  if (filterBar) {
+    var filterButtons = filterBar.querySelectorAll('.studio-filter-btn');
+    var studioCards = document.querySelectorAll('#studioGrid .studio-card');
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterButtons.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var filter = btn.getAttribute('data-filter');
+        studioCards.forEach(function (card) {
+          var cat = card.getAttribute('data-cat');
+          if (filter === 'todos' || cat === filter) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  }
 })();

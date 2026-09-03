@@ -12,6 +12,10 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -89,6 +93,19 @@ html, body {
   object-position: 50% 15%;
 }
 
+/* Desktop / wide screens: the source video is a vertical 9:16 portrait.
+   Cropping it to "cover" a wide viewport zooms in hard and cuts the man
+   out of frame. On anything wider than a phone, show the full frame
+   instead, centered, letterboxed on the near-black background so it
+   reads as intentional rather than a mistake. */
+@media (min-aspect-ratio: 4/5) {
+  .hero-video {
+    object-fit: contain;
+    object-position: 50% 50%;
+    background: #000;
+  }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -126,8 +143,25 @@ html, body {
 
 .hud-tag--right { color: var(--cyan); }
 
+/* Logo sits pinned to the top, centered, above the subject's head. */
+.hero-logo-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  pointer-events: none;
+}
+
+.logo-scroll-note {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: rgba(244, 243, 240, 0.32);
+}
+
 /* Everything below sits together, bottom-anchored, like the reference's
-   single-screen proportions: logo, tagline, CTAs, socials, hint. */
+   single-screen proportions: tagline, CTAs, socials, hint. */
 .hero-content {
   margin-top: auto;
   display: flex;
@@ -141,6 +175,10 @@ html, body {
   width: min(70%, 340px);
   height: auto;
   filter: drop-shadow(0 4px 30px rgba(0,0,0,0.55));
+}
+
+.logo-mark--top {
+  width: min(52%, 240px);
 }
 
 .tagline {
@@ -225,19 +263,28 @@ html, body {
 }
 
 /* ---------- Scroll hint ---------- */
+/* Kept intentionally quiet: small, low-contrast, lowercase, and a very
+   slow breathing fade so it reads as a whisper, not a call-to-action. */
 .scroll-hint {
   margin-top: 6px;
   text-align: center;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 2px;
-  color: var(--fg-dim);
+  color: rgba(244, 243, 240, 0.32);
+  text-transform: lowercase;
+  animation: scrollHintBreathe 3.6s ease-in-out infinite;
+}
+
+@keyframes scrollHintBreathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
 }
 
 .scroll-line {
-  margin: 8px auto 0;
-  width: 100px;
+  margin: 7px auto 0;
+  width: 70px;
   height: 1px;
-  background: var(--line);
+  background: rgba(244, 243, 240, 0.1);
   overflow: hidden;
 }
 
@@ -245,6 +292,147 @@ html, body {
   height: 100%;
   width: 0%;
   background: var(--amber);
+}
+
+/* ---------- Estúdio IA (galeria em grade) ---------- */
+.studio-section {
+  background: var(--bg);
+  padding: 64px 20px 40px;
+}
+
+.studio-header {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 34px;
+}
+
+.studio-eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.studio-title-main {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 6vw, 44px);
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+  color: var(--fg);
+}
+
+.studio-sub {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fg-dim);
+}
+
+.studio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.studio-filter-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(8, 9, 11, 0.45);
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.studio-filter-btn:hover {
+  border-color: var(--cyan);
+  color: var(--fg);
+}
+
+.studio-filter-btn.is-active {
+  border-color: var(--amber);
+  background: rgba(242, 169, 59, 0.16);
+  color: var(--fg);
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.studio-card.is-hidden {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .studio-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+
+@media (min-width: 1080px) {
+  .studio-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.studio-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0c0d10;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.studio-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+.studio-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #000;
+}
+
+.studio-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.studio-info {
+  padding: 10px 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.studio-tag {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+}
+
+.studio-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--fg);
 }
 
 /* ---------- Footer ---------- */
@@ -266,6 +454,7 @@ html, body {
   .hero { height: 100vh; }
   .hero-sticky { position: relative; }
   .loader-fill, .cta, .loader { transition: none; }
+  .scroll-hint { animation: none; }
 }
 
 /* ---------- Small / short screens ---------- */

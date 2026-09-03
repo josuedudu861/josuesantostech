@@ -43,9 +43,13 @@
           <span class="hud-tag hud-tag--right">IA · VÍDEO · CRIAÇÃO</span>
         </div>
 
+        <div class="hero-logo-top">
+          <img class="logo-mark logo-mark--top" src="logo.png" alt="Josué Santos Tech">
+          <span class="logo-scroll-note">role a tela e veja o efeito acontecer</span>
+        </div>
+
         <div class="hero-content">
 
-          <img class="logo-mark" src="logo.png" alt="Josué Santos Tech">
           <p class="tagline">CRIAR <span class="dot">•</span> INOVAR <span class="dot">•</span> TRANSFORMAR</p>
 
           <div class="hub-actions">
@@ -69,12 +73,536 @@
           </div>
 
           <div class="scroll-hint">
-            <span id="scrollHintLabel">ROLE PARA VER O VÍDEO</span>
+            <span id="scrollHintLabel">role para ver o efeito</span>
             <div class="scroll-line"><div class="scroll-line-fill" id="scrollLineFill"></div></div>
           </div>
 
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <section class="studio-section" id="estudio-ia">
+    <div class="studio-header">
+      <span class="studio-eyebrow">PORTFÓLIO</span>
+      <h2 class="studio-title-main">ESTÚDIO IA</h2>
+      <p class="studio-sub">Comerciais, cursos e clipes criados com inteligência artificial.</p>
+    </div>
+
+    <div class="studio-filters" id="studioFilters">
+      <button type="button" class="studio-filter-btn is-active" data-filter="todos">Todos</button>
+      <button type="button" class="studio-filter-btn" data-filter="comercial">Comerciais</button>
+      <button type="button" class="studio-filter-btn" data-filter="cinematico">Cinemático</button>
+      <button type="button" class="studio-filter-btn" data-filter="acao">Ação</button>
+      <button type="button" class="studio-filter-btn" data-filter="animacao">Animação</button>
+      <button type="button" class="studio-filter-btn" data-filter="moda">Moda</button>
+    </div>
+
+    <div class="studio-grid" id="studioGrid">
+
+      <!-- ======================================================
+           COMO ADICIONAR UM NOVO PROJETO:
+           1) Copie todo o bloco <article class="studio-card">...</article> de um
+              dos projetos abaixo (ex: "Projeto 1").
+           2) Cole logo depois dele, ainda dentro desta mesma div "studio-grid".
+           3) Troque o texto da categoria (ex: COMERCIAL) e do titulo do projeto.
+           4) Troque a imagem de capa: src="seuarquivo.jpg" -- suba esse arquivo
+              na raiz do repositorio, junto com os outros (mesmo lugar do hero.mp4).
+           5) Se quiser usar um VIDEO em vez de imagem parada nesse card, troque
+              a tag <img class="studio-media" src="..."> por:
+                <video class="studio-media" muted loop playsinline autoplay
+                       preload="metadata" poster="capa.jpg">
+                  <source src="seuvideo.mp4" type="video/mp4">
+                </video>
+           6) O atributo data-cat="..." no <article> controla em qual botao de
+              filtro (Comerciais, Cinematico, Acao, Animacao, Moda) o card
+              aparece. Use os mesmos valores em minusculo e sem acento:
+              comercial, cinematico, acao, animacao, moda.
+           ====================================================== -->
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="burger-house.jpg">
+            <source src="burger-house.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">RAF Burger House</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="cinematico">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="planetario-brasilia.jpg">
+            <source src="planetario-brasilia.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">CINEMÁTICO</span>
+          <h3 class="studio-name">Planetário de Brasília</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="acao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="a-luta.jpg">
+            <source src="a-luta.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">AÇÃO</span>
+          <h3 class="studio-name">A Luta</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="cidade-futuro.jpg">
+            <source src="cidade-futuro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Cidade do Futuro</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="acao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="confronto.jpg">
+            <source src="confronto.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">AÇÃO</span>
+          <h3 class="studio-name">Confronto</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="floresta-animada.jpg">
+            <source src="floresta-animada.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Floresta Animada</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="cinematico">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="catedral-cristal.jpg">
+            <source src="catedral-cristal.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">CINEMÁTICO</span>
+          <h3 class="studio-name">A Catedral de Cristal</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="moda">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="grwm-elegante.jpg">
+            <source src="grwm-elegante.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">MODA</span>
+          <h3 class="studio-name">GRWM Elegante</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="acao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="salto-urbano.jpg">
+            <source src="salto-urbano.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">AÇÃO</span>
+          <h3 class="studio-name">Salto Urbano</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="cinematico">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="sobrevoo-ny.jpg">
+            <source src="sobrevoo-ny.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">CINEMÁTICO</span>
+          <h3 class="studio-name">Sobrevoo em Nova York</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="sabor-aventura.jpg">
+            <source src="sabor-aventura.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Sabor Aventura</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="comercial-kro.jpg">
+            <source src="comercial-kro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Comercial Kró</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="visita-inesperada.jpg">
+            <source src="visita-inesperada.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Visita Inesperada</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="chinelo-magico.jpg">
+            <source src="chinelo-magico.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Chinelo Mágico</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="turma-tonzinho.jpg">
+            <source src="turma-tonzinho.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Turma do Tonzinho</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="chapeuzinho.jpg">
+            <source src="chapeuzinho.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Chapeuzinho Vermelho</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="chegada-vip.jpg">
+            <source src="chegada-vip.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Chegada VIP</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="roubo-da-bola.jpg">
+            <source src="roubo-da-bola.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">O Roubo da Bola</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="estilo-retro.jpg">
+            <source src="estilo-retro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Estilo Retrô</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="banda-mirim.jpg">
+            <source src="banda-mirim.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Banda Mirim</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="monstro-aventureiro.jpg">
+            <source src="monstro-aventureiro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Monstro Aventureiro</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="acao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="duelo-de-aco.jpg">
+            <source src="duelo-de-aco.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">AÇÃO</span>
+          <h3 class="studio-name">Duelo de Aço</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="tonzinho-parque.jpg">
+            <source src="tonzinho-parque.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Turma do Tonzinho: Tarde no Parque</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="encontro-inesperado.jpg">
+            <source src="encontro-inesperado.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Encontro Inesperado</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="animacao">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="reflexo-no-espelho.jpg">
+            <source src="reflexo-no-espelho.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">ANIMAÇÃO</span>
+          <h3 class="studio-name">Reflexo no Espelho</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="sabor-de-rua.jpg">
+            <source src="sabor-de-rua.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Sabor de Rua</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="cinematico">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="reflexo-de-aco.jpg">
+            <source src="reflexo-de-aco.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">CINEMÁTICO</span>
+          <h3 class="studio-name">Reflexo de Aço</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="comercial">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="moto-ou-mala.jpg">
+            <source src="moto-ou-mala.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">COMERCIAL</span>
+          <h3 class="studio-name">Moto ou Mala?</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="cinematico">
+        <div class="studio-thumb">
+          <video class="studio-media" muted loop playsinline preload="metadata" poster="mente-digital.jpg">
+            <source src="mente-digital.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">CINEMÁTICO</span>
+          <h3 class="studio-name">Mente Digital</h3>
+        </div>
+      </article>
+
+      <!-- ======================================================
+           VAGAS "EM BREVE" -- 12 espacos reservados pra voce ir
+           preenchendo com os proximos projetos.
+
+           COMO TROCAR UMA VAGA POR UM PROJETO DE VERDADE:
+           1) Troque poster="em-breve.jpg" pela imagem de capa do seu projeto
+              (suba o arquivo .jpg na raiz do repositorio).
+           2) Dentro do <video>, troque <source src="em-breve.jpg"> por
+              <source src="seuvideo.mp4" type="video/mp4"> (suba o .mp4 tambem).
+           3) Troque o texto da categoria (span.studio-tag) e do titulo
+              (h3.studio-name), e ajuste o data-cat="novo" para a categoria certa.
+           Precisa de mais de 12? E so copiar um bloco inteiro
+           <article class="studio-card">...</article> e colar depois do ultimo.
+           ====================================================== -->
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
+
+      <article class="studio-card" data-cat="novo">
+        <div class="studio-thumb">
+          <img class="studio-media" src="em-breve.jpg" alt="Em breve">
+        </div>
+        <div class="studio-info">
+          <span class="studio-tag">NOVO</span>
+          <h3 class="studio-name">Em breve</h3>
+        </div>
+      </article>
 
     </div>
   </section>
