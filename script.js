@@ -258,7 +258,7 @@
     updateFromScroll();
   }
 
-  /* ---------- CTA placeholders ---------- */
+  /* ---------- CTAs ---------- */
   document.querySelectorAll('.cta').forEach(function (el) {
     el.addEventListener('click', function (e) {
       var target = document.querySelector(el.getAttribute('href'));
@@ -266,6 +266,13 @@
         e.preventDefault();
         // Sections not built yet in this stage of the project.
         console.log('[hub] destino ainda não publicado:', el.dataset.cta);
+        return;
+      }
+      // "VER CINEMA" scrolls to the gallery and pre-applies the
+      // Cinemático filter, so the visitor lands straight on those cards.
+      if (el.dataset.cta === 'cinema') {
+        var cinemaBtn = document.querySelector('.studio-filter-btn[data-filter="cinematico"]');
+        if (cinemaBtn) cinemaBtn.click();
       }
     });
   });
